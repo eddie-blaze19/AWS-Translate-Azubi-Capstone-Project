@@ -31,15 +31,6 @@ Resources:
             Status: Enabled
             AbortIncompleteMultipartUpload:
               DaysAfterInitiation: 7
-      NotificationConfiguration:
-        LambdaConfigurations:
-          - Event: s3:ObjectCreated:*
-            Function: !GetAtt TranslateLambdaFunction.Arn
-            Filter:
-              S3Key:
-                Rules:
-                  - Name: suffix
-                    Value: .json
       PublicAccessBlockConfiguration:
         BlockPublicAcls: true
         BlockPublicPolicy: true
@@ -95,12 +86,12 @@ Resources:
                 Action:
                   - s3:GetObject
                   - s3:GetObjectVersion
-                Resource: !Sub '${RequestBucket}/*'
+                Resource: !Sub '${RequestBucket.Arn}/*' # Use RequestBucket.Arn here
               - Effect: Allow
                 Action:
                   - s3:PutObject
                   - s3:PutObjectAcl
-                Resource: !Sub '${ResponseBucket}/*'
+                Resource: !Sub '${ResponseBucket.Arn}/*' # Use ResponseBucket.Arn here
               - Effect: Allow
                 Action:
                   - s3:ListBucket
@@ -304,7 +295,30 @@ Resources:
       FunctionName: !Ref TranslateLambdaFunction
       Action: lambda:InvokeFunction
       Principal: s3.amazonaws.com
-      SourceArn: !Sub '${RequestBucket}::*'
+      SourceArn: !GetAtt RequestBucket.Arn # Use !GetAtt for the ARN
+      # Explicitly declare dependency to ensure RequestBucket is created first
+      DependsOn: RequestBucket
+
+  # S3 Bucket Notification Configuration
+  RequestBucketNotification:
+    Type: AWS::S3::BucketNotification
+    Properties:
+      Bucket: !Ref RequestBucket # Reference the RequestBucket resource
+      NotificationConfiguration:
+        LambdaConfigurations:
+          - Event: s3:ObjectCreated:*
+            Function: !GetAtt TranslateLambdaFunction.Arn # Reference the Lambda function ARN
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: suffix
+                    Value: .json
+    # Explicitly declare dependencies to ensure RequestBucket, TranslateLambdaFunction,
+    # and LambdaInvokePermission are created before configuring notifications.
+    DependsOn:
+      - RequestBucket
+      - TranslateLambdaFunction
+      - LambdaInvokePermission
 
   # CloudWatch Log Group for Lambda function
   LambdaLogGroup:
