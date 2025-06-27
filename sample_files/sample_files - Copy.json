@@ -1,0 +1,33 @@
+{
+  "request_id": "sample_001",
+  "source_language": "en",
+  "target_language": "es",
+  "texts": [
+    {
+      "id": 1,
+      "text": "Hello, welcome to our AWS Translation Service!"
+    },
+    {
+      "id": 2,
+      "text": "This service can translate text from English to Spanish and many other languages."
+    },
+    {
+      "id": 3,
+      "text": "We use AWS Translate, which provides fast and accurate machine translation."
+    },
+    {
+      "id": 4,
+      "text": "The infrastructure is built using Terraform for Infrastructure as Code."
+    },
+    {
+      "id": 5,
+      "text": "Files are processed automatically when uploaded to the S3 request bucket."
+    }
+  ],
+  "timestamp": "2025-01-15T10:30:00Z",
+  "client_info": {
+    "version": "1.0",
+    "client_type": "manual_upload"
+  },
+  "metadata": {}
+}
