@@ -1,0 +1,75 @@
+{
+  "translation_metadata": {
+    "source_language": "en",
+    "target_language": "es",
+    "total_texts": 5,
+    "total_characters": 346,
+    "timestamp": "2025-06-26T08:39:47.351290",
+    "processing_status": "completed"
+  },
+  "translations": [
+    {
+      "id": 1,
+      "original_text": "Hello, welcome to our AWS Translation Service!",
+      "translated_text": "Hola, ¡bienvenido a nuestro servicio de traducción de AWS!",
+      "character_count": 46
+    },
+    {
+      "id": 2,
+      "original_text": "This service can translate text from English to Spanish and many other languages.",
+      "translated_text": "Este servicio puede traducir texto del inglés al español y a muchos otros idiomas.",
+      "character_count": 81
+    },
+    {
+      "id": 3,
+      "original_text": "We use AWS Translate, which provides fast and accurate machine translation.",
+      "translated_text": "Usamos AWS Translate, que proporciona una traducción automática rápida y precisa.",
+      "character_count": 75
+    },
+    {
+      "id": 4,
+      "original_text": "The infrastructure is built using Terraform for Infrastructure as Code.",
+      "translated_text": "La infraestructura se construye utilizando Terraform for Infrastructure as Code.",
+      "character_count": 71
+    },
+    {
+      "id": 5,
+      "original_text": "Files are processed automatically when uploaded to the S3 request bucket.",
+      "translated_text": "Los archivos se procesan automáticamente cuando se cargan en el bucket de solicitudes de S3.",
+      "character_count": 73
+    }
+  ],
+  "original_request": {
+    "request_id": "sample_001",
+    "source_language": "en",
+    "target_language": "es",
+    "texts": [
+      {
+        "id": 1,
+        "text": "Hello, welcome to our AWS Translation Service!"
+      },
+      {
+        "id": 2,
+        "text": "This service can translate text from English to Spanish and many other languages."
+      },
+      {
+        "id": 3,
+        "text": "We use AWS Translate, which provides fast and accurate machine translation."
+      },
+      {
+        "id": 4,
+        "text": "The infrastructure is built using Terraform for Infrastructure as Code."
+      },
+      {
+        "id": 5,
+        "text": "Files are processed automatically when uploaded to the S3 request bucket."
+      }
+    ],
+    "timestamp": "2025-01-15T10:30:00Z",
+    "client_info": {
+      "version": "1.0",
+      "client_type": "manual_upload"
+    },
+    "metadata": {}
+  }
+}

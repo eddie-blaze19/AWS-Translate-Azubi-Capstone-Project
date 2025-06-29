@@ -1,0 +1,28 @@
+{
+  "translation_metadata": {
+    "source_language": "en",
+    "target_language": "es",
+    "total_texts": 1,
+    "total_characters": 5,
+    "timestamp": "2025-06-27T15:43:02.718573",
+    "processing_status": "completed"
+  },
+  "translations": [
+    {
+      "id": 1,
+      "original_text": "house",
+      "translated_text": "casa",
+      "character_count": 5
+    }
+  ],
+  "original_request": {
+    "source_language": "en",
+    "target_language": "es",
+    "texts": [
+      {
+        "id": 1,
+        "text": "house"
+      }
+    ]
+  }
+}
